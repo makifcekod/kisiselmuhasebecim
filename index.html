@@ -38,8 +38,7 @@
     nav {
       width: 100%;
       border-bottom: 1px solid var(--border);
-      background-color: rgba(15, 23, 42, 0.9);
-      backdrop-filter: blur(8px);
+      background-color: rgba(15, 23, 42, 0.92);
       position: sticky;
       top: 0;
       z-index: 10;
@@ -149,6 +148,27 @@
       transform: translateY(-2px);
     }
 
+    .btn-license {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      background-color: var(--bg-secondary);
+      color: var(--text);
+      border: 1px solid var(--border);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 0.95rem 2rem;
+      border-radius: 0.65rem;
+      transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.15s ease;
+    }
+
+    .btn-license:hover {
+      border-color: var(--accent);
+      background-color: #263349;
+      transform: translateY(-2px);
+    }
+
     .meta {
       margin-top: 1rem;
       font-size: 0.85rem;
@@ -198,7 +218,7 @@
       font-size: 0.95rem;
     }
 
-    .steps {
+    .box {
       background-color: var(--bg-secondary);
       border: 1px solid var(--border);
       border-radius: 0.85rem;
@@ -207,7 +227,7 @@
       margin: 0 auto;
     }
 
-    .steps ol {
+    .box ol {
       padding-left: 1.25rem;
       color: var(--muted);
       display: flex;
@@ -215,8 +235,25 @@
       gap: 0.75rem;
     }
 
-    .steps strong {
+    .box strong {
       color: var(--text);
+    }
+
+    .license-box {
+      text-align: center;
+    }
+
+    .license-box p {
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .mail-text {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      color: #34d399;
+      word-break: break-all;
     }
 
     footer {
@@ -244,6 +281,7 @@
       <div class="nav-links">
         <a href="#ozellikler">Özellikler</a>
         <a href="#kurulum">Kurulum</a>
+        <a href="#lisans">Lisans</a>
       </div>
     </div>
   </nav>
@@ -264,6 +302,14 @@
       >
         <span>⬇</span>
         <span>Programı İndir (v2.0.0 .exe)</span>
+      </a>
+      <a
+        id="license-btn"
+        class="btn-license"
+        href="mailto:makifdmirbas+lisans@gmail.com?subject=Ki%C5%9Fisel%20Muhasebecim%20-%20Lisans%20Talebi&body=Merhaba%2C%0A%0AKi%C5%9Fisel%20Muhasebecim%20program%C4%B1%20i%C3%A7in%20lisans%20anahtar%C4%B1%20talep%20ediyorum.%0A%0AAd%20Soyad%3A%20%0AKullan%C4%B1m%20Amac%C4%B1%20(Bireysel%2FTicari)%3A%20%0A%0ATe%C5%9Fekk%C3%BCrler."
+      >
+        <span>✉</span>
+        <span>Lisans Talep Et</span>
       </a>
     </div>
     <p class="meta">
@@ -292,12 +338,30 @@
 
     <section id="kurulum">
       <h2 class="section-title">Kurulum Adımları</h2>
-      <div class="steps">
+      <div class="box">
         <ol>
           <li><strong>İndirin:</strong> Yukarıdaki <em>Programı İndir</em> butonuna tıklayarak kurulum dosyasını bilgisayarınıza indirin.</li>
           <li><strong>Çalıştırın:</strong> İndirilen <code>.exe</code> kurulum dosyasına çift tıklayın (Windows SmartScreen uyarısı çıkarsa <em>Ek bilgi → Yine de çalıştır</em> seçeneğini kullanabilirsiniz).</li>
           <li><strong>Tamamlayın:</strong> Kurulum sihirbazındaki adımları izleyerek kurulumu tamamlayın ve masaüstü kısayolundan programı başlatın.</li>
         </ol>
+      </div>
+    </section>
+
+    <section id="lisans">
+      <h2 class="section-title">Lisans Talebi</h2>
+      <div class="box license-box">
+        <p>
+          Programı tam sürüm olarak kullanmak için aşağıdaki butona tıklayarak hazır lisans talep e-postasını gönderebilirsiniz.
+        </p>
+        <a
+          class="btn-license"
+          href="mailto:makifdmirbas+lisans@gmail.com?subject=Ki%C5%9Fisel%20Muhasebecim%20-%20Lisans%20Talebi&body=Merhaba%2C%0A%0AKi%C5%9Fisel%20Muhasebecim%20program%C4%B1%20i%C3%A7in%20lisans%20anahtar%C4%B1%20talep%20ediyorum.%0A%0AAd%20Soyad%3A%20%0AKullan%C4%B1m%20Amac%C4%B1%20(Bireysel%2FTicari)%3A%20%0A%0ATe%C5%9Fekk%C3%BCrler."
+        >
+          <span>✉</span>
+          <span>Lisans Talep E-postası Gönder</span>
+        </a>
+        <br />
+        <span class="mail-text">E-posta: makifdmirbas+lisans@gmail.com</span>
       </div>
     </section>
   </main>
