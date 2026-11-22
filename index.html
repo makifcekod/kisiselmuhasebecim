@@ -139,6 +139,8 @@
       font-size: 1.05rem;
       padding: 0.95rem 2rem;
       border-radius: 0.65rem;
+      border: none;
+      cursor: pointer;
       transition: background-color 0.2s ease, transform 0.15s ease;
       box-shadow: 0 8px 24px rgba(16, 185, 129, 0.25);
     }
@@ -151,15 +153,17 @@
     .btn-license {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 0.65rem;
       background-color: var(--bg-secondary);
       color: var(--text);
       border: 1px solid var(--border);
       text-decoration: none;
       font-weight: 700;
-      font-size: 1.05rem;
-      padding: 0.95rem 2rem;
+      font-size: 1rem;
+      padding: 0.9rem 1.6rem;
       border-radius: 0.65rem;
+      cursor: pointer;
       transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.15s ease;
     }
 
@@ -239,21 +243,63 @@
       color: var(--text);
     }
 
-    .license-box {
-      text-align: center;
+    .form-group {
+      margin-bottom: 1rem;
+      text-align: left;
     }
 
-    .license-box p {
-      color: var(--muted);
-      margin-bottom: 1.25rem;
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: var(--text);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem 0.9rem;
+      border-radius: 0.55rem;
+      border: 1px solid var(--border);
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    .status-msg {
+      margin-top: 0.9rem;
+      font-size: 0.9rem;
+      color: #34d399;
+      min-height: 1.2rem;
     }
 
     .mail-text {
       display: inline-block;
-      margin-top: 0.75rem;
+      margin-top: 1rem;
       font-size: 0.9rem;
-      color: #34d399;
+      color: var(--muted);
       word-break: break-all;
+    }
+
+    .mail-text strong {
+      color: #34d399;
     }
 
     footer {
@@ -303,11 +349,7 @@
         <span>⬇</span>
         <span>Programı İndir (v2.0.0 .exe)</span>
       </a>
-      <a
-        id="license-btn"
-        class="btn-license"
-        href="mailto:makifdmirbas+lisans@gmail.com?subject=Ki%C5%9Fisel%20Muhasebecim%20-%20Lisans%20Talebi&body=Merhaba%2C%0A%0AKi%C5%9Fisel%20Muhasebecim%20program%C4%B1%20i%C3%A7in%20lisans%20anahtar%C4%B1%20talep%20ediyorum.%0A%0AAd%20Soyad%3A%20%0AKullan%C4%B1m%20Amac%C4%B1%20(Bireysel%2FTicari)%3A%20%0A%0ATe%C5%9Fekk%C3%BCrler."
-      >
+      <a href="#lisans" class="btn-license">
         <span>✉</span>
         <span>Lisans Talep Et</span>
       </a>
@@ -349,19 +391,45 @@
 
     <section id="lisans">
       <h2 class="section-title">Lisans Talebi</h2>
-      <div class="box license-box">
-        <p>
-          Programı tam sürüm olarak kullanmak için aşağıdaki butona tıklayarak hazır lisans talep e-postasını gönderebilirsiniz.
+      <div class="box">
+        <form id="license-form">
+          <div class="form-group">
+            <label for="ad-soyad">Ad Soyad</label>
+            <input type="text" id="ad-soyad" name="ad_soyad" placeholder="Adınız ve soyadınız" required />
+          </div>
+
+          <div class="form-group">
+            <label for="kullanim-amaci">Kullanım Amacı</label>
+            <select id="kullanim-amaci" name="kullanim_amaci">
+              <option value="Bireysel">Bireysel</option>
+              <option value="Ticari">Ticari</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="not-alani">Ek Not (İsteğe Bağlı)</label>
+            <textarea id="not-alani" name="not_alani" rows="3" placeholder="Lisans talebinizle ilgili notunuz..."></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" id="gmail-send-btn" class="btn-download">
+              <span>✉</span>
+              <span>Gmail ile Gönder</span>
+            </button>
+            <button type="button" id="mailto-send-btn" class="btn-license">
+              <span>E-posta Uygulaması ile Aç</span>
+            </button>
+            <button type="button" id="copy-mail-btn" class="btn-license">
+              <span>Adresi Kopyala</span>
+            </button>
+          </div>
+
+          <p id="status-msg" class="status-msg"></p>
+        </form>
+
+        <p class="mail-text">
+          Hedef Lisans Adresi: <strong>makifdmirbas+lisans@gmail.com</strong>
         </p>
-        <a
-          class="btn-license"
-          href="mailto:makifdmirbas+lisans@gmail.com?subject=Ki%C5%9Fisel%20Muhasebecim%20-%20Lisans%20Talebi&body=Merhaba%2C%0A%0AKi%C5%9Fisel%20Muhasebecim%20program%C4%B1%20i%C3%A7in%20lisans%20anahtar%C4%B1%20talep%20ediyorum.%0A%0AAd%20Soyad%3A%20%0AKullan%C4%B1m%20Amac%C4%B1%20(Bireysel%2FTicari)%3A%20%0A%0ATe%C5%9Fekk%C3%BCrler."
-        >
-          <span>✉</span>
-          <span>Lisans Talep E-postası Gönder</span>
-        </a>
-        <br />
-        <span class="mail-text">E-posta: makifdmirbas+lisans@gmail.com</span>
       </div>
     </section>
   </main>
@@ -369,5 +437,63 @@
   <footer>
     © 2026 Mehmet Akif Demirbaş — Kişisel Muhasebecim (v2.0.0)
   </footer>
+
+  <script>
+    const targetEmail = "makifdmirbas+lisans@gmail.com";
+
+    function buildMessage() {
+      const adSoyad = document.getElementById("ad-soyad").value.trim() || "Belirtilmedi";
+      const amac = document.getElementById("kullanim-amaci").value;
+      const notAlani = document.getElementById("not-alani").value.trim() || "Yok";
+
+      const subject = "Kişisel Muhasebecim - Lisans Talebi";
+      const body =
+        "Merhaba,\n\n" +
+        "Kişisel Muhasebecim programı için lisans anahtarı talep ediyorum.\n\n" +
+        "Ad Soyad: " + adSoyad + "\n" +
+        "Kullanım Amacı: " + amac + "\n" +
+        "Not: " + notAlani + "\n\n" +
+        "Teşekkürler.";
+
+      return { subject, body };
+    }
+
+    document.getElementById("gmail-send-btn").addEventListener("click", () => {
+      const { subject, body } = buildMessage();
+      const gmailUrl =
+        "https://mail.google.com/mail/?view=cm&fs=1&to=" +
+        encodeURIComponent(targetEmail) +
+        "&su=" +
+        encodeURIComponent(subject) +
+        "&body=" +
+        encodeURIComponent(body);
+
+      window.open(gmailUrl, "_blank", "noopener");
+      document.getElementById("status-msg").textContent =
+        "Gmail oluşturma penceresi yeni sekmede açıldı.";
+    });
+
+    document.getElementById("mailto-send-btn").addEventListener("click", () => {
+      const { subject, body } = buildMessage();
+      window.location.href =
+        "mailto:" +
+        encodeURIComponent(targetEmail) +
+        "?subject=" +
+        encodeURIComponent(subject) +
+        "&body=" +
+        encodeURIComponent(body);
+    });
+
+    document.getElementById("copy-mail-btn").addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(targetEmail);
+        document.getElementById("status-msg").textContent =
+          "E-posta adresi panoya kopyalandı: " + targetEmail;
+      } catch {
+        document.getElementById("status-msg").textContent =
+          "E-posta adresi: " + targetEmail;
+      }
+    });
+  </script>
 </body>
 </html>
